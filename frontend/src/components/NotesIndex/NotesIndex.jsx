@@ -10,7 +10,7 @@ useEffect( () => {
 }, [])
 
 let getNotes = async () => {
-    const res = await fetch("http://localhost:8000/api/users/")
+    const res = await fetch("http://127.0.0.1:8000/api/users/")
     const data = await res.json()
     console.log(data)
     setNotes(data)
@@ -20,9 +20,9 @@ let getNotes = async () => {
 return(
     <div className="todo-list-container">
         <div className="todo-list">
-            {notes.map( note => {
+            {notes.map( (note, idx) => {
                 return (
-                    <div>{note.name}</div>
+                    <div key={idx}>{note.name}</div>
                 )
             })}
         </div>
